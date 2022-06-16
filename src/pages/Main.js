@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../shared/App.css";
 import One from "../element/One";
 import Three from "../element/Three";
 import Two from "../element/Two";
+import Dots from "../element/Dots";
+
+const divider = 5;
 
 const Main = () => {
+  const [scrollIdx, setScrollIdx] = useState(0);
   const outerDivRef = useRef();
   useEffect(() => {
     const wheelHandler = (e) => {
@@ -15,55 +19,54 @@ const Main = () => {
 
       if (deltaY > 0) {
         if (scrollTop >= 0 && scrollTop < pageHeight) {
-          console.log("1");
           outerDivRef.current.scrollTo({
-            top: pageHeight,
+            top: pageHeight+divider,
             left: 0,
             behavior: "smooth",
-          });
+          });          
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
-          console.log("현재 2페이지, down");
           outerDivRef.current.scrollTo({
-            top: pageHeight * 2,
+            top: pageHeight * 2 + divider * 2,
             left: 0,
             behavior: "smooth",
           });
+          setScrollIdx(1);
         } else {
           // 현재 3페이지
-          console.log("현재 3페이지, down");
           outerDivRef.current.scrollTo({
-            top: pageHeight * 2,
+            top: pageHeight * 2+ divider * 2,
             left: 0,
             behavior: "smooth",
           });
+          setScrollIdx(2);
         }
       } else {
         // 스크롤 올릴 때
         if (scrollTop >= 0 && scrollTop < pageHeight) {
           //현재 1페이지
-          console.log("현재 1페이지, up");
           outerDivRef.current.scrollTo({
             top: 0,
             left: 0,
             behavior: "smooth",
           });
+          setScrollIdx(0);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
-          console.log("현재 2페이지, up");
           outerDivRef.current.scrollTo({
             top: 0,
             left: 0,
             behavior: "smooth",
           });
+          setScrollIdx(1);
         } else {
           // 현재 3페이지
-          console.log("현재 3페이지, up");
           outerDivRef.current.scrollTo({
-            top: pageHeight,
+            top: pageHeight + divider,
             left: 0,
             behavior: "smooth",
           });
+          setScrollIdx(2);
         }
       }
     };
@@ -75,6 +78,7 @@ const Main = () => {
   }, []);
   return (
     <div ref={outerDivRef} className="outer">
+      <Dots scrollIdx={scrollIdx} />
       <div className="inner">
         <One />
       </div>
