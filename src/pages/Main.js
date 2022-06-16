@@ -24,6 +24,7 @@ const Main = () => {
             left: 0,
             behavior: "smooth",
           });          
+          setScrollIdx(1);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
           outerDivRef.current.scrollTo({
@@ -31,7 +32,8 @@ const Main = () => {
             left: 0,
             behavior: "smooth",
           });
-          setScrollIdx(1);
+          // alert("1");
+          setScrollIdx(2);
         } else {
           // 현재 3페이지
           outerDivRef.current.scrollTo({
@@ -39,7 +41,8 @@ const Main = () => {
             left: 0,
             behavior: "smooth",
           });
-          setScrollIdx(2);
+          // alert("2");
+          // setScrollIdx(0);
         }
       } else {
         // 스크롤 올릴 때
@@ -50,7 +53,7 @@ const Main = () => {
             left: 0,
             behavior: "smooth",
           });
-          setScrollIdx(0);
+          // setScrollIdx(0);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
           outerDivRef.current.scrollTo({
@@ -58,7 +61,7 @@ const Main = () => {
             left: 0,
             behavior: "smooth",
           });
-          setScrollIdx(1);
+          setScrollIdx(0);
         } else {
           // 현재 3페이지
           outerDivRef.current.scrollTo({
@@ -66,7 +69,7 @@ const Main = () => {
             left: 0,
             behavior: "smooth",
           });
-          setScrollIdx(2);
+          setScrollIdx(1);
         }
       }
     };
@@ -75,7 +78,7 @@ const Main = () => {
     return () => {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     };
-  }, []);
+  });
   return (
     <div ref={outerDivRef} className="outer">
       <Dots scrollIdx={scrollIdx} />
