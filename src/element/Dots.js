@@ -21,9 +21,9 @@ const Dots = ({ scrollIdx }) => {
   return (
     <DotsDiv>
         <DotStyle>
-            {keyNum.map((e) => {
+            {keyNum.map((i) => {
                 return (
-                    <Dot num={e} scrollIdx={scrollIdx} />
+                    <Dot num={i} scrollIdx={scrollIdx} key={i} />
                 )
             })}
       </DotStyle>
