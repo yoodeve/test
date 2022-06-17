@@ -1,6 +1,5 @@
 import React from "react";
 import two from "../images/2.jpeg";
-import '../css/slider.css'
 
 const Two = () => {
     const to = () => {

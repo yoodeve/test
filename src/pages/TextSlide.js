@@ -1,8 +1,10 @@
 import React from "react";
+import '../css/slider.css'
 
 const TextSlide = () => {
   return (
     <>
+    <div className="background">
       <p className="slideptag">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a eleifend
         dolor, vitae vestibulum dui. Praesent tincidunt leo imperdiet massa
@@ -15,6 +17,7 @@ const TextSlide = () => {
         purus ut volutpat dignissim, nisl dolor sodales eros, in euismod eros
         mauris ac ex. In id lectus quam.
       </p>
+      </div>
     </>
   );
 };
