@@ -7,7 +7,7 @@ const Three = () => {
       };
     return (
         <div>
-            <img onClick={to} src={three} />
+            <img onClick={to} src={three} alt="this is alt value" />
         </div>
     );
 };
