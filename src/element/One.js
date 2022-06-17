@@ -1,13 +1,13 @@
 import React from "react";
 import one from "../images/1.jpg";
-import { Link } from "react-router-dom";
 
 const One = () => {
+  const to = () => {
+    window.location.href="/move";
+  };
   return (
     <div>
-      <Link to="/move">
-        <img src={one} alt="redVelvet so pretty"/>
-      </Link>
+      <img onClick={to} src={one} alt="redVelvet so pretty" />
     </div>
   );
 };

@@ -21,12 +21,15 @@ const OutDiv = styled.div`
 display: grid;
 `
 
-const InDiv = styled.img`
-  border: 1px solid #000;
-  width: 30%;
+const InDiv = styled.div`
+background-image: url('${(props) => props.src}');
+  /* border: 1px solid #000; */
+  width: 100%;
   height: 50vh;
   margin: auto;
   overflow: hidden;
+  background-size: contain;
+background-repeat: no-repeat;
 `;
 
 export default Movement;
